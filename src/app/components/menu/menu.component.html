@@ -1,0 +1,5 @@
+<div id="menu-container" [class.hidden]="hidden">
+
+  <a *ngFor="let currentMenu of menuItems" [href]="currentMenu.routerLink">{{currentMenu.label}}</a>
+
+</div>

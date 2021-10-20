@@ -1,0 +1,30 @@
+#header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 70px;
+  width: 100%;
+
+  border-bottom: 2px solid rgba(0, 0, 0, .5);
+}
+
+#left-section {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  #menu-toggle-button {
+    margin-right: 12px;
+  }
+}
+
+#right-section {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  .label {
+    margin-right: 12px;
+  }
+}
