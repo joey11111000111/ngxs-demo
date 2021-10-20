@@ -8,12 +8,15 @@ import { HeaderComponent } from './components/header/header.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { ButtonModule } from 'primeng/button';
 import { MultiSelectModule } from 'primeng/multiselect';
+import { UnknownPageComponent } from './components/unknown-page/unknown-page.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    MenuComponent
+    MenuComponent,
+    UnknownPageComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +26,9 @@ import { MultiSelectModule } from 'primeng/multiselect';
     ButtonModule,
     MultiSelectModule,
   ],
-  providers: [],
+  providers: [
+    { provide: LocationStrategy, useClass: HashLocationStrategy }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
