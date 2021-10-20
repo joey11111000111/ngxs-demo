@@ -9,14 +9,17 @@ import { MenuComponent } from './components/menu/menu.component';
 import { ButtonModule } from 'primeng/button';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { UnknownPageComponent } from './components/unknown-page/unknown-page.component';
-import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { DatePipe, HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { ListComponent } from './components/list/list.component';
+import { TableModule } from 'primeng/table';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     MenuComponent,
-    UnknownPageComponent
+    UnknownPageComponent,
+    ListComponent
   ],
   imports: [
     BrowserModule,
@@ -25,9 +28,11 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     // PrimeNG modules
     ButtonModule,
     MultiSelectModule,
+    TableModule
   ],
   providers: [
-    { provide: LocationStrategy, useClass: HashLocationStrategy }
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })
