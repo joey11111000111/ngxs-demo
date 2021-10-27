@@ -1,1 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
+.form-row {
+  display: flex;
+  margin-bottom: 18px;
+
+  .control-group {
+    width: 275px;
+    margin-right: 14px;
+    display: flex;
+    flex-direction: column;
+
+    label {
+      margin-bottom: 8px;
+    }
+  }
+}
+
+.p-selectbutton.p-buttonset {
+  display: flex;
+  .p-button.p-component {
+    width: 100%;
+  }
+}
+
+p-calendar {
+  .p-calendar {
+    width: 100%;
+  }
+}
+
+p-dropdown {
+  .p-dropdown.p-component {
+    width: 100%;
+  }
+}

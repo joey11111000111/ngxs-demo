@@ -12,6 +12,17 @@ import { UnknownPageComponent } from './components/unknown-page/unknown-page.com
 import { DatePipe, HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { ListComponent } from './components/list/list.component';
 import { TableModule } from 'primeng/table';
+import { DetailComponent } from './components/detail/detail.component';
+import { PersonalDataComponent } from './components/personal-data/personal-data.component';
+import { ContactDataComponent } from './components/contact-data/contact-data.component';
+import { ActivitiesComponent } from './components/activities/activities.component';
+import { TabViewModule } from 'primeng/tabview';
+import { ReactiveFormsModule } from '@angular/forms';
+import { InputTextModule } from 'primeng/inputtext';
+import { CalendarModule } from 'primeng/calendar';
+import { SelectButtonModule } from 'primeng/selectbutton';
+import { DropdownModule } from 'primeng/dropdown';
+import { InputTextareaModule } from 'primeng/inputtextarea';
 
 @NgModule({
   declarations: [
@@ -19,7 +30,11 @@ import { TableModule } from 'primeng/table';
     HeaderComponent,
     MenuComponent,
     UnknownPageComponent,
-    ListComponent
+    ListComponent,
+    DetailComponent,
+    PersonalDataComponent,
+    ContactDataComponent,
+    ActivitiesComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +43,14 @@ import { TableModule } from 'primeng/table';
     // PrimeNG modules
     ButtonModule,
     MultiSelectModule,
-    TableModule
+    TableModule,
+    TabViewModule,
+    ReactiveFormsModule,
+    InputTextModule,
+    CalendarModule,
+    SelectButtonModule,
+    DropdownModule,
+    InputTextareaModule
   ],
   providers: [
     { provide: LocationStrategy, useClass: HashLocationStrategy },

@@ -1,0 +1,51 @@
+<form [formGroup]="formGroup">
+
+  <div class="form-row">
+    <div class="control-group">
+      <label>Telefonszám</label>
+      <input pInputText formControlName="phoneNumber">
+    </div>
+    <div class="control-group">
+      <label>E-mail cím</label>
+      <input pInputText formControlName="email">
+    </div>
+    <div class="control-group">
+      <label>Preferált elérhetőség</label>
+      <p-dropdown [options]="preferredWayOptions" formControlName="preferredWay"></p-dropdown>
+    </div>
+  </div>
+
+  <hr>
+
+  <div formGroupName="address">
+    <h4>Cím</h4>
+
+    <div class="form-row">
+      <div class="control-group">
+        <label>Ország</label>
+        <input pInputText formControlName="country">
+      </div>
+      <div class="control-group">
+        <label>Irányítószám</label>
+        <input pInputText formControlName="zipCode">
+      </div>
+      <div class="control-group">
+        <label>Város</label>
+        <input pInputText formControlName="city">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="control-group">
+        <label>Utca</label>
+        <input pInputText formControlName="street">
+      </div>
+      <div class="control-group">
+        <label>Házszám</label>
+        <input pInputText formControlName="houseNumber">
+      </div>
+    </div>
+
+  </div>
+
+</form>
