@@ -4,6 +4,7 @@ import { ActivityModel } from './activity-model';
 
 export interface DetailModel {
 
+  id: number;
   personalData: PersonalDataModel;
   contactData: ContactDataModel;
   activities?: ActivityModel[];

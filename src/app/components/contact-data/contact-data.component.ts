@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { SelectItem } from 'primeng/api';
+import { ContactTypes } from '../../models/contact-types';
 
 @Component({
   selector: 'app-contact-data',
@@ -34,8 +35,8 @@ export class ContactDataComponent {
 
   private initPreferredWayOptions(): void {
     this.preferredWayOptions = [
-      { label: 'Telefon', value: 'PHONE' },
-      { label: 'E-mail', value: 'email' }
+      { label: 'Telefon', value: ContactTypes.phone },
+      { label: 'E-mail', value: ContactTypes.email }
     ];
   }
 

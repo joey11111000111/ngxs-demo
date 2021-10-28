@@ -4,7 +4,7 @@ export interface PersonalDataModel {
 
   firstName: string;
   lastName: string;
-  birthDate: string;
+  birthDate: Date;
   gender: Gender;
 
 }
