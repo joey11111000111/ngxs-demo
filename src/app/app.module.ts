@@ -23,6 +23,13 @@ import { CalendarModule } from 'primeng/calendar';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputTextareaModule } from 'primeng/inputtextarea';
+import { MenuState } from './store/menu-state';
+import { environment } from '../environments/environment';
+import { NgxsModule } from '@ngxs/store';
+import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
+import { UserState } from './store/user-state';
+import { ListState } from './store/details/list-state';
+import { DetailsState } from './store/details/details-state';
 
 @NgModule({
   declarations: [
@@ -40,6 +47,12 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+
+    NgxsModule.forRoot([MenuState, UserState, ListState, DetailsState], {
+      developmentMode: !environment.production
+    }),
+    NgxsReduxDevtoolsPluginModule.forRoot(),
+
     // PrimeNG modules
     ButtonModule,
     MultiSelectModule,

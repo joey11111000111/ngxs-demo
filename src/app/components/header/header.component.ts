@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
+import { Store } from '@ngxs/store';
+import { ToggleMenuExpanded } from '../../store/menu-state';
 import { SelectItem } from 'primeng/api';
 import { Roles } from '../../models/roles';
+import { SetActiveRole } from '../../store/user-state';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +14,7 @@ export class HeaderComponent {
 
   public roleOptions: SelectItem[];
 
-  constructor() {
+  constructor(private store: Store) {
     this.initRoleOptions();
   }
 
@@ -24,11 +27,12 @@ export class HeaderComponent {
   }
 
   public toggleMenu(): void {
+    this.store.dispatch(new ToggleMenuExpanded());
   }
 
   public setSelectedRole(changeEvent: { originalEvent: Event, value: Roles }): void {
     const selectedRole = changeEvent.value;
-    console.log('--- selected role ---\n', selectedRole);
+    this.store.dispatch(new SetActiveRole(selectedRole));
   }
 
 }

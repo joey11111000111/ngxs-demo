@@ -1,4 +1,4 @@
-<p-table [value]="value" [columns]="cols">
+<p-table [value]="value | async" [columns]="cols">
 
   <ng-template pTemplate="header" let-columns>
     <tr>

@@ -1,5 +1,5 @@
-<div id="menu-container" [class.hidden]="hidden">
+<div id="menu-container" [class.hidden]="!(expanded | async)">
 
-  <a *ngFor="let currentMenu of menuItems" [href]="currentMenu.routerLink">{{currentMenu.label}}</a>
+  <a *ngFor="let currentMenu of (menuItems | async)" [routerLink]="currentMenu.routerLink">{{currentMenu.label}}</a>
 
 </div>

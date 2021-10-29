@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { MenuItem } from 'primeng/api';
+import { MenuState } from '../../store/menu-state';
+import { Select, Store } from '@ngxs/store';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-menu',
@@ -8,11 +11,13 @@ import { MenuItem } from 'primeng/api';
 })
 export class MenuComponent {
 
-  public menuItems: MenuItem[];
-  public hidden: boolean;
+  @Select(MenuState.menuItems)
+  public menuItems: Observable<MenuItem[]>;
+
+  @Select(MenuState.expanded)
+  public expanded: Observable<boolean>;
 
   constructor() {
-    this.hidden = false;
   }
 
 }

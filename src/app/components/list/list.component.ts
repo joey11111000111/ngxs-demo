@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { ListModel } from '../../models/list-model';
 import { ListService } from '../../services/list.service';
 import { Router } from '@angular/router';
+import { Select, Store } from '@ngxs/store';
+import { ListState, LoadTableData } from '../../store/details/list-state';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-list',
@@ -10,15 +13,12 @@ import { Router } from '@angular/router';
 })
 export class ListComponent {
 
-  public value: ListModel[];
+  @Select(ListState.tableData)
+  public value: Observable<ListModel[]>;
+
   public cols: { field: string, header: string }[];
 
-  constructor(private listService: ListService, private router: Router) {
-    this.listService.loadList().toPromise()
-      .then(values => {
-        this.value = values;
-      });
-
+  constructor(private listService: ListService, private router: Router, private store: Store) {
     this.cols = [
       { field: 'lastName', header: 'Családnév' },
       { field: 'firstName', header: 'Keresztnév' },
@@ -27,7 +27,9 @@ export class ListComponent {
       { field: 'phoneNumber', header: 'Telefonszám' },
       { field: 'email', header: 'e-mail' },
     ];
+    this.store.dispatch(new LoadTableData());
   }
+
 
   public navigateToDetailView(selectedItem: ListModel): void {
     this.router.navigate([`detail/${selectedItem.id}`]);
